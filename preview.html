@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Porcentaje diario</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    #porcentaje {
+      font-size: 6rem;
+      font-weight: bold;
+    }
+
+    #dias {
+      font-size: 2rem;
+      opacity: 0.9;
+    }
+
+    #amor {
+      font-size: 1.8rem;
+      color: #ff8dc7;
+    }
+
+    #firma {
+      font-size: 0.9rem;
+      opacity: 0.6;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    <div id="porcentaje">0%</div>
+    <div id="dias">quedan 0 días</div>
+    <div id="amor">te amo 🩷</div>
+    <div id="firma">A x E</div>
+  </div>
+
+  <script>
+    const porcentajes = {
+      1: "70.5%",
+      2: "71.6%",
+      3: "72.7%",
+      4: "73.9%",
+      5: "75.0%",
+      6: "76.1%",
+      7: "77.3%",
+      8: "78.4%",
+      9: "79.5%",
+      10: "80.7%",
+      11: "81.8%",
+      12: "83.0%",
+      13: "84.1%",
+      14: "85.2%",
+      15: "86.4%",
+      16: "87.5%",
+      17: "88.6%",
+      18: "89.8%",
+      19: "90.9%",
+      20: "92.0%",
+      21: "93.2%",
+      22: "94.3%",
+      23: "95.5%",
+      24: "96.6%",
+      25: "97.7%",
+      26: "98.9%",
+      27: "100%"
+    };
+
+    const hoy = new Date();
+    const dia = hoy.getDate();
+    const mes = hoy.getMonth() + 1;
+
+    let valor = "Sin datos";
+
+    // Mostrar porcentaje solo en mayo
+    if (mes === 5 && porcentajes[dia]) {
+      valor = porcentajes[dia];
+    }
+
+    document.getElementById("porcentaje").textContent = valor;
+
+    // Calcular días restantes hasta el 27
+    let diasRestantes = 27 - dia;
+
+    if (diasRestantes < 0) {
+      diasRestantes = 0;
+    }
+
+    document.getElementById("dias").textContent =
+      `quedan ${diasRestantes} días`;
+  </script>
+
+</body>
+</html>
