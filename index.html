@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Porcentaje diario</title>
 
+  <!-- Fuente medieval -->
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -16,6 +19,7 @@
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
+      overflow: hidden;
     }
 
     .contenedor {
@@ -29,20 +33,20 @@
       font-weight: bold;
     }
 
-    #dias {
+    /* Cuenta atrás */
+    #countdown {
       font-size: 2rem;
       opacity: 0.9;
     }
 
-    #amor {
-      font-size: 1.8rem;
-      color: #ff8dc7;
-    }
-
+    /* Texto medieval */
     #firma {
-      font-size: 0.9rem;
-      opacity: 0.6;
-      letter-spacing: 2px;
+      margin-top: 10px;
+      font-size: 2.2rem;
+      color: #ff8dc7;
+      font-family: 'UnifrakturCook', cursive;
+      letter-spacing: 4px;
+      text-shadow: 0 0 10px rgba(255, 141, 199, 0.4);
     }
   </style>
 </head>
@@ -50,8 +54,11 @@
 
   <div class="contenedor">
     <div id="porcentaje">0%</div>
-    <div id="dias">quedan 0 días</div>
-    <div id="amor">te amo 🩷</div>
+
+    <!-- Cuenta atrás -->
+    <div id="countdown">00d 00h 00m 00s</div>
+
+    <!-- Firma -->
     <div id="firma">A x E</div>
   </div>
 
@@ -99,15 +106,38 @@
 
     document.getElementById("porcentaje").textContent = valor;
 
-    // Calcular días restantes hasta el 27
-    let diasRestantes = 27 - dia;
+    // Cuenta atrás hasta el 27 de mayo a las 00:00
+    function actualizarCountdown() {
+      const ahora = new Date();
 
-    if (diasRestantes < 0) {
-      diasRestantes = 0;
+      const objetivo = new Date(
+        ahora.getFullYear(),
+        4, // mayo
+        27,
+        0,
+        0,
+        0
+      );
+
+      const diferencia = objetivo - ahora;
+
+      if (diferencia <= 0) {
+        document.getElementById("countdown").textContent =
+          "ha llegado el día 🩷";
+        return;
+      }
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+      const segundos = Math.floor((diferencia / 1000) % 60);
+
+      document.getElementById("countdown").textContent =
+        `${dias}d ${horas}h ${minutos}m ${segundos}s`;
     }
 
-    document.getElementById("dias").textContent =
-      `quedan ${diasRestantes} días`;
+    actualizarCountdown();
+    setInterval(actualizarCountdown, 1000);
   </script>
 
 </body>
