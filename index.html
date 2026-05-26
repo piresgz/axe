@@ -108,20 +108,20 @@
     function actualizarCountdown() {
       const ahora = new Date();
 
-      const objetivo = new Date(
-        ahora.getFullYear(),
-        4,
-        27,
-        0,
-        0,
-        0
-      );
+const objetivo = new Date(
+  ahora.getFullYear(),
+  4,  // mayo (los meses empiezan en 0)
+  29,
+  19, // 7 PM
+  0,
+  0
+);
 
       const diferencia = objetivo - ahora;
 
       if (diferencia <= 0) {
         document.getElementById("countdown").textContent =
-          "te amo";
+          "Te Amo";
         return;
       }
 
