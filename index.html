@@ -90,14 +90,17 @@
       24: "96.6%",
       25: "97.7%",
       26: "98.9%",
-      27: "100%"
+      27: "100%",
+      28: "MAÑANA"
+      29: "HOY"
+
     };
 
     const hoy = new Date();
     const dia = hoy.getDate();
     const mes = hoy.getMonth() + 1;
 
-    let valor = "Sin datos";
+    let valor = "A & E";
 
     if (mes === 5 && porcentajes[dia]) {
       valor = porcentajes[dia];
