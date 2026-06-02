@@ -3,68 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba de Álbum Interactivo</title>
+    <title>Para Siempre</title>
     <style>
-        /* Un diseño rápido para que no quede feo */
+        /* Estilos para centrar todo y darle un toque elegante */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f6f0;
-            color: #333;
-            max-width: 600px;
-            margin: 0 auto;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fcf9f5; /* Un tono crema suave y cálido */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .mensaje-contenedor {
+            text-align: center;
             padding: 20px;
         }
-        .foto-contenedor {
-            background: white;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
+
+        h1 {
+            font-size: 2.5rem;
+            color: #5c4d43; /* Un color marrón sutil, nada agresivo */
+            font-weight: 300; /* Letra fina y elegante */
+            letter-spacing: 1px;
+            margin: 0;
+            animation: fadeIn 2.5s ease-in-out; /* Efecto suave al cargar */
         }
-        .foto-contenedor img {
-            width: 100%;
-            border-radius: 8px;
-            display: block;
-            margin-bottom: 15px;
-        }
-        h2 {
-            font-size: 1.2rem;
-            margin-top: 0;
-            color: #555;
-        }
-        /* Esto separa un poco el cuadro de comentarios de la foto */
-        .comentarios-seccion {
-            margin-top: 20px;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
+
+        /* Animación para que el texto aparezca poco a poco */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <h1 style="text-align: center; color: #887366;">📸 Nuestra Prueba</h1>
-    <p style="text-align: center; font-style: italic;">Un espacio para nuestros recuerdos</p>
-
-    <!-- FOTO DE PRUEBA 1 -->
-    <div class="foto-contenedor">
-        <h2>1. Nuestro primer café juntos ☕</h2>
-        <!-- He puesto una foto cualquiera de internet para la prueba -->
-        <img src="https://picsum.photos/id/1060/600/400" alt="Foto de prueba 1">
-        
-        <div class="comentarios-seccion">
-            <!-- AQUÍ EMPIEZA CUSDIS -->
-            <div id="cusdis_thread"
-              data-host="https://cusdis.com"
-              data-app-id="PON_AQUI_TU_APP_ID_DE_CUSDIS" 
-              data-page-id="foto_prueba_cafe"
-              data-page-url="https://tuweb.com/prueba1"
-              data-page-title="El primer café">
-            </div>
-        </div>
+    <div class="mensaje-contenedor">
+        <h1>ahora juntos para siempre</h1>
     </div>
-
-    <!-- EL SCRIPT MÁGICO (Solo se pone una vez al final) -->
-    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 
 </body>
 </html>
