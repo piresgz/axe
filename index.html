@@ -1,145 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Porcentaje diario</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Uncial+Antiqua&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #111;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .contenedor {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    #porcentaje {
-      font-size: 6rem;
-      font-weight: bold;
-      color: #D08AF9;
-    }
-
-    #countdown {
-      font-size: 2rem;
-      opacity: 0.9;
-    }
-
-    #firma {
-      margin-top: 10px;
-      font-size: 2.5rem;
-      color: #ff8dc7;
-      font-family: "League Gothic", sans-serif;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px rgba(255, 141, 199, 0.4);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Álbum Interactivo</title>
+    <style>
+        /* Un diseño rápido para que no quede feo */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f6f0;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .foto-contenedor {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        .foto-contenedor img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+            margin-bottom: 15px;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin-top: 0;
+            color: #555;
+        }
+        /* Esto separa un poco el cuadro de comentarios de la foto */
+        .comentarios-seccion {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+    </style>
 </head>
-
 <body>
 
-  <div class="contenedor">
-    <div id="porcentaje">0%</div>
+    <h1 style="text-align: center; color: #887366;">📸 Nuestra Prueba</h1>
+    <p style="text-align: center; font-style: italic;">Un espacio para nuestros recuerdos</p>
 
-    <div id="countdown">00d 00h 00m 00s</div>
+    <!-- FOTO DE PRUEBA 1 -->
+    <div class="foto-contenedor">
+        <h2>1. Nuestro primer café juntos ☕</h2>
+        <!-- He puesto una foto cualquiera de internet para la prueba -->
+        <img src="https://picsum.photos/id/1060/600/400" alt="Foto de prueba 1">
+        
+        <div class="comentarios-seccion">
+            <!-- AQUÍ EMPIEZA CUSDIS -->
+            <div id="cusdis_thread"
+              data-host="https://cusdis.com"
+              data-app-id="PON_AQUI_TU_APP_ID_DE_CUSDIS" 
+              data-page-id="foto_prueba_cafe"
+              data-page-url="https://tuweb.com/prueba1"
+              data-page-title="El primer café">
+            </div>
+        </div>
+    </div>
 
-    <div id="firma">YA CASII</div>
-  </div>
-
-  <script>
-    const porcentajes = {
-      1: "70.5%",
-      2: "71.6%",
-      3: "72.7%",
-      4: "73.9%",
-      5: "75.0%",
-      6: "76.1%",
-      7: "77.3%",
-      8: "78.4%",
-      9: "79.5%",
-      10: "80.7%",
-      11: "81.8%",
-      12: "83.0%",
-      13: "84.1%",
-      14: "85.2%",
-      15: "86.4%",
-      16: "87.5%",
-      17: "88.6%",
-      18: "89.8%",
-      19: "90.9%",
-      20: "92.0%",
-      21: "93.2%",
-      22: "94.3%",
-      23: "95.5%",
-      24: "96.6%",
-      25: "97.7%",
-      26: "98.9%",
-      27: "100%",
-      28: "MAÑANA"
-      29: "HOY"
-
-    };
-
-    const hoy = new Date();
-    const dia = hoy.getDate();
-    const mes = hoy.getMonth() + 1;
-
-    let valor = "A & E";
-
-    if (mes === 5 && porcentajes[dia]) {
-      valor = porcentajes[dia];
-    }
-
-    document.getElementById("porcentaje").textContent = valor;
-
-    function actualizarCountdown() {
-      const ahora = new Date();
-
-const objetivo = new Date(
-  ahora.getFullYear(),
-  4,  // mayo (los meses empiezan en 0)
-  29,
-  19, // 7 PM
-  0,
-  0
-);
-
-      const diferencia = objetivo - ahora;
-
-      if (diferencia <= 0) {
-        document.getElementById("countdown").textContent =
-          "Te Amo";
-        return;
-      }
-
-      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
-      const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
-      const segundos = Math.floor((diferencia / 1000) % 60);
-
-      document.getElementById("countdown").textContent =
-        `${dias}d ${horas}h ${minutos}m ${segundos}s`;
-    }
-
-    actualizarCountdown();
-    setInterval(actualizarCountdown, 1000);
-  </script>
+    <!-- EL SCRIPT MÁGICO (Solo se pone una vez al final) -->
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 
 </body>
 </html>
