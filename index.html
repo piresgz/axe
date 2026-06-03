@@ -1,121 +1,25 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0014)about:internet -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A y E</title>
-    <style>
-        /* Reiniciamos márgenes */
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000000; /* Fondo negro absoluto */
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            overflow: hidden;
-        }
-
-        /* LA FOTO DE FONDO ÚNICA */
-        .foto-fondo-unica {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1; /* Detrás del texto */
-            object-fit: cover; /* Cubre toda la pantalla sin deformarse */
-            opacity: 0.30; /* Nivel de transparencia (30% visible). Súbelo o bájalo a tu gusto */
-            filter: brightness(0.5) contrast(0.95); /* Filtro oscuro para que el texto resalte a la perfección */
-            animation: fadeInFoto 4s ease-in-out; /* Aparición muy suave al cargar */
-        }
-
-        /* ESTRUCTURA TEXTO (Por encima del fondo) */
-        .tabla-centrado {
-            display: table;
-            width: 100%;
-            height: 100%;
-            position: relative;
-            z-index: 2; /* Por delante de la foto */
-        }
-
-        .celda-centrado {
-            display: table-cell;
-            vertical-align: middle;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .mensaje-contenedor {
-            display: inline-block;
-            animation: fadeInTexto 3s ease-in-out;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* Sombra al texto por seguridad */
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: #ffffff; /* Texto blanco */
-            font-weight: 300; /* Letra fina y elegante */
-            letter-spacing: 2px;
-            margin: 0 0 15px 0;
-        }
-
-        .fecha {
-            font-size: 1.3rem;
-            color: #e0e0e0;
-            font-style: italic;
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin: 0;
-            display: block;
-        }
-
-        /* Animación para la foto (aparece un pelín más lento para dar efecto cinematográfico) */
-        @keyframes fadeInFoto {
-            from { opacity: 0; }
-            to { opacity: 0.30; }
-        }
-
-        /* Animación para el texto */
-        @keyframes fadeInTexto {
-            from { 
-                opacity: 0; 
-                transform: translateY(15px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
-        }
-
-        /* Ajuste para pantallas pequeñas (móviles) */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem;
-                letter-spacing: 1px;
-            }
-            .fecha {
-                font-size: 1.1rem;
-                letter-spacing: 2px;
-            }
-        }
-    </style>
+    <title>holaxd</title>
+    <link rel="stylesheet" href="./DeclarateWey_files/style.css">
 </head>
+
 <body>
+    <div class="container">
+        <div class="title">
+            me haces un masaje?
+        </div>
 
-    <!-- FOTO DE FONDO -->
-    <!-- Cambia "nuestra-foto.jpg" por el nombre real de tu archivo de imagen -->
-    <img class="foto-fondo-unica" src="nuestra-foto.jpg" alt="foto">
-
-    <!-- TEXTO PRINCIPAL -->
-    <div class="tabla-centrado">
-        <div class="celda-centrado">
-            <div class="mensaje-contenedor">
-                <h1>Ahora juntos para siempre.</h1>
-                <span class="fecha">13-02-26</span>
-            </div>
+        <div class="buttons">
+            <button id="btnyes" class="btn">Si</button>
+            <button id="btnno" class="btn">No</button>
         </div>
     </div>
 
-</body>
-</html>
+    <script src="./DeclarateWey_files/script.js.download"></script>
+
+
+</body></html>
